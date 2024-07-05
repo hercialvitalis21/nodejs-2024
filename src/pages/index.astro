@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Image } from 'astro:assets';
 ---
 
 <!doctype html>
@@ -13,6 +14,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
+			<div>
+				<img src="//unsplash.it/510" alt="" class="hero__image">
+			  </div>
+			  <div class="display:inline vertical-align: middle">
+				<Image
+				 src="https://images.pexels.com/photos/23508826/pexels-photo-23508826/free-photo-of-pink-flamingo.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" 
+				  alt=""
+				 width="510"
+				 height="300"
+				 />
+			  </div>
 			<h1>🧑‍🚀 Hello, Astronaut!</h1>
 			<p>
 				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
@@ -38,6 +50,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					>read the docs
 				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
 			</p>
+			<p>Meet the bloggers<a href="src/pages/link.astro">join us bloggers</a></p>
 			<p>
 				Looking for a blog template with a bit more personality? Check out <a
 					href="https://github.com/Charca/astro-blog-template"

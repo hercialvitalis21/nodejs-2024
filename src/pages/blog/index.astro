@@ -1,111 +1,17 @@
----
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
----
-
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<small>
+<ul>
+<button class="bg-sky-500 hover:bg-sky-700 "><a href="/contact">Go To The Contact Page </a></button>
+<button class="bg-sky-800/ hover:bg-indigo-500 bg-transparent gap-3"><a href="/">Go to the Home Page</a></button>
+<button class="bg-cyan-100 hover:bg-sky-400  gap-4"><a href="/about">Go to the About Page</a></button>
+<button class="bg-slate-200 hover:bg-zinc-700 bg-current gap-5"><a href="/link">Go to the Links Page</a></button>
+<button class="bg-neutral-400 hover:bg-stone-50 gap-6"><a href="/portfolio/">Go to the Portfolio Page</a></button>
+<button class="bg-sky-800 hover:bg-slate-100 gap-7"><a href="/pictures/">Go to the Pictures Page</a></button>
+<button class="bg-slate-200 hover:bg-yellow-50 gap-2"><a href="/blog/navBar">Go to the Blog Page</a></button>
+<button class="bg-slate-600 hover:bg-transparent gap-1"><a href="https://x.com/astrodotbuild">Go to the Twitter Page</a></button>
+<button class="bg-sky-100 hover:bg-yellow-50 text-left gap-0"><a href="https://github.com/withastro/astro">Go to Github Page</a></button>
+<button class="bg-slate-200 hover:bg-stone-100 gap-1"><a href="https://www.wsj.com/">Go to News</a></button>
+<button class="bg-slate-200 hover:bg-stone-100 gap-1"><a href="https://www.google.com/search?gs_ssp=eJzj4tLP1TcwMqs0MrMwYPTiLTEyUCjPL8pJUUguLQAAYHoHnw&q=t20+world+cup&rlz=1C1GCEU_en&oq=&gs_lcrp=EgZjaHJvbWUqCQgCEC4YJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCEC4YJxjqAjIJCAMQIxgnGOoCMgkIBBAjGCcY6gIyCQgFECMYJxjqAjIJCAYQIxgnGOoCMgkIBxBFGDsYwgPSAQszMTYyNDk5ajBqN6gCCLACAQ&sourceid=chrome&ie=UTF-8">Go to Men's T20 Score</a></button>
+<button class="bg-blue-600 hover:bg-white"><a href="https://www.sanity.io/login?origin=https%3A%2F%2Fwww.sanity.io%2Fmanage%2Fpersonal%2Fproject%2Fpuacj25x%2Fplan">Sanity/nextjs</a></button>
+</ul>
+</small>
